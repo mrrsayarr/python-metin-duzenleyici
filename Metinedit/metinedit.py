@@ -80,6 +80,10 @@ class MainWindow(QMainWindow):
         container.setLayout(layout)
         self.setCentralWidget(container)
 
+        # Icon Dosyası
+        icon_path = 'images/icon.png'
+        app.setWindowIcon(QIcon(icon_path))
+
         self.status = QStatusBar()
         self.setStatusBar(self.status)
 
