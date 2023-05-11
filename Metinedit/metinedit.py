@@ -316,13 +316,13 @@ class MainWindow(QMainWindow):
 
         self.block_signals(self._format_actions, False)
 
-    def dialog_critical(self, s):
+    def dialog_critical(self, s): # Hata mesajı için kritik bir iletişim kutusu oluştur
         dlg = QMessageBox(self)
         dlg.setText(s)
         dlg.setIcon(QMessageBox.Critical)
         dlg.show()
 
-    def file_open(self):
+    def file_open(self): # Seçilen dosyanın yolunu path değişkeninde sakla
         path, _ = QFileDialog.getOpenFileName(self, "Dosya aç", "",
                                               "HTML documents (*.html);Text documents (*.txt);All files (*.*)")
 
@@ -338,7 +338,7 @@ class MainWindow(QMainWindow):
             self.editor.setText(text)
             self.update_title()
 
-    def file_save(self):
+    def file_save(self): # Dosya kaydetme işlemini gerçekleştirirken hata oluşursa hata mesajı gösteren bir fonksiyon
         if self.path is None:
             return self.file_saveas()
 
@@ -383,8 +383,9 @@ class MainWindow(QMainWindow):
         self.editor.setLineWrapMode(1 if self.editor.lineWrapMode() == 0 else 0)
 
 
+# Uygulama Çalıştırma
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setApplicationName("WebNot")
+    #.setApplicationName("WebNot")
     window = MainWindow()
     app.exec_()
